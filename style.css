@@ -1,0 +1,201 @@
+body {
+  background-color: #f3f3f3;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background-color 0.5s ease;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: cardAnimation 1s ease-in-out;
+  width: 90%;
+  max-width: 400px;
+}
+
+@keyframes cardAnimation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+h1 {
+  color: #000; /* Tidak ada efek neon pada teks */
+  font-size: 32px;
+  margin-bottom: 10px;
+  opacity: 1;
+}
+
+h2 {
+  color: #000; /* Tidak ada efek neon pada teks */
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.option {
+  margin-bottom: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  background-color: #f3f3f3;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.option:hover label {
+  background-color: #00bfff; /* Biru Neon */
+}
+
+.option input[type="radio"]:checked + label {
+  background-color: #00bfff;
+  color: #fff;
+  animation: labelSelected 0.3s ease-in-out forwards;
+}
+
+@keyframes labelSelected {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 5px #00bfff, 0 0 10px #00bfff;
+  }
+  100% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00bfff, 0 0 40px #00bfff;
+  }
+}
+
+button {
+  background-color: #00bfff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.3s;
+  animation: neonGlowButton 1.5s ease-in-out infinite alternate;
+}
+
+button:hover {
+  background-color: #00ffff; /* Biru lebih terang */
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+}
+
+@keyframes neonGlowButton {
+  0% {
+    box-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff, 0 0 30px #00bfff;
+  }
+  100% {
+    box-shadow: 0 0 15px #00bfff, 0 0 25px #00bfff, 0 0 35px #00bfff;
+  }
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #00bfff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.option-result {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+  opacity: 0;
+  animation: resultAnimation 0.5s ease-in-out forwards;
+}
+
+@keyframes resultAnimation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.option-text {
+  flex: 1;
+}
+
+.bar-container {
+  flex: 3;
+  background-color: #f3f3f3;
+  height: 10px;
+  margin-left: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00bfff, #00ffff, #00bfff);
+  background-size: 200% 100%;
+  width: 0;
+  transition: width 0.5s ease-in-out, background-position 1s ease;
+}
+
+.percentage {
+  flex: 1;
+  margin-left: 10px;
+  font-weight: bold;
+  color: #00bfff;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  button {
+    padding: 8px 16px;
+  }
+}
